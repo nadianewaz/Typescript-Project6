@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
+type User = {
+  id : number,
+  name : string 
+}
+
 function App() {
+  const [user, setUser] = useState<User>({} as User);
+
+  const handleAddUser = () => {
+    setUser( {id : 1, name : "nadia"} )
+    console.log(user);
+  }
+  
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <button onClick={handleAddUser}>AddUser</button>
+    <p>{user.name}</p>
+    </>
   );
 }
 
